@@ -51,7 +51,7 @@ def preprocess(data):
     input_lengths = []
     target_lengths = []
 
-    for wav, sr, label in data:
+    for wav, sr, label, _, _, _ in data:
         if sr != 16000:
             resample = T.Resample(orig_freq=sr, new_freq=16000)
             wav = resample(wav)
