@@ -169,7 +169,7 @@ def test():
 def infer(file_):
     model.load_state_dict(torch.load("target/model-final.ckpt"))
     wav, sr = torchaudio.load(file_)
-    inputs = preprocess([(wav, sr, "")])[0]
+    inputs = preprocess([(wav, sr, "", None, None, None)])[0]
     with torch.no_grad():
         outputs = model(inputs)
         inferred = ctc_decode(outputs)
